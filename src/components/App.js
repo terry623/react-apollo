@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import logo from '../logo.svg';
-import '../styles/App.css';
+import Login from './Login';
+import LinkList from './LinkList';
+import CreateLink from './CreateLink';
+import Header from './Header';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="center w85">
+        <Header />
+        <div className="ph3 pv1 background-gray">
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/" component={LinkList} />
+            <Route exact path="/create" component={CreateLink} />
+          </Switch>
+        </div>
       </div>
     );
   }
 }
-
-// "devDependencies": {
-//   "eslint": "^4.19.1",
-//   "eslint-config-yoctol": "^0.17.1",
-//   "eslint-plugin-import": "^2.13.0",
-//   "eslint-plugin-jsx-a11y": "^6.0.3",
-//   "eslint-plugin-prettier": "^2.6.1",
-//   "eslint-plugin-react": "^7.9.1"
-// }
 
 export default App;
